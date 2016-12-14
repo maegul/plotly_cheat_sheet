@@ -1,0 +1,233 @@
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="prism.css">
+
+
+	<style type="text/css">
+
+	body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+
+
+	}
+
+	.cont {
+/*		width: 78%;
+*//*		margin: auto;
+*/
+/*		height: 100%;
+*/		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.cont > * {
+		margin: 40px;
+	}
+
+
+	.desc {
+		font-family: sans-serif;
+		font-size: 1.4em;
+		font-weight: bold;
+	}
+
+	.comment {
+		font-family:  sans-serif;, "Verdana";
+	}
+
+
+	</style>
+
+</head>
+<body>
+
+	<h1>Plot.ly Cheat Sheet</h1>
+
+
+
+	<div class='cont'>
+
+
+	<div>
+		<div class='desc'>
+			Define a single trace
+
+		</div>
+		<pre><code class="language-js">
+var x_data = [1, 2, 3, 4];
+var y_data = [10, 20, 30, 40];
+var trace1 = {
+				x: x_data,
+				y: y_data,
+				mode: 'markers'
+			};
+	</code></pre>
+	</div>
+
+
+	<div>
+		<div class='desc'>
+			Use the provided 'Letters' data set
+
+		</div>
+		<pre><code class="language-js">
+var trace1 = {
+				// x coord data for letter 'a'
+				x: data.a.x,
+
+				// y coord data for letter 'a'
+				y: data.a.y,
+				mode: 'markers'
+			};
+
+// letter 'R'
+data.r.x
+
+// space
+data.space.x
+
+// apostrophe
+data.apost.x
+
+// question mark
+data.quest.x
+
+// exclamation mark
+data.exclam.x
+	</code></pre>
+	</div>
+
+
+	<div>
+		<div class='desc'>
+			Make a new plot
+
+		</div>
+		<pre><code class="language-js">
+Plotly.newPlot(graph_location, [trace1], layout)
+		</code></pre>
+
+		<div class='comment'>
+			"graph_location" = place in page to put plot
+			<br><br>
+			"[trace1]" = Set of pre-defined data sets.  Here only one such trace, "trace1"
+			<br><br>
+			"layout" = predifined set of parameters for general appearence of the plot
+		</div>
+
+	</div>
+
+
+	<div>
+		<div class='desc'>
+			Define a function
+
+		</div>
+		<pre><code class="language-js">
+var my_function = function(my_arguments){my code;};
+	</code></pre>
+
+	<div class='comment'>
+		'my_arguments' are optional.  <br><br>Used only when used in my_function's 'my code'.
+	</div>
+	</div>
+
+
+
+	<div>
+		<div class='desc'>
+			Run code on a button click
+
+		</div>
+		<pre><code class="language-js">
+d3.select('#my_button').on('click', function(){
+	my button click code;
+})
+	</code></pre>
+	</div>
+
+
+	<div>
+		<div class='desc'>
+			Animate a plot.ly plot (see eg below)
+
+		</div>
+		<pre><code class="language-js">
+Plotly.animate(graph_location, 
+	{
+		data: [new_trace1]
+	},
+
+	{
+		timing parameters
+	}
+)
+	</code></pre>
+	</div>
+
+
+
+	<div>
+		<div class='desc'>
+			Example of Animating a plot.ly plot
+
+		</div>
+		<pre><code class="language-js">
+Plotly.animate(graph_location, 
+	{
+		data: [
+			{
+				x: new_x_data, 
+				y: new_y_data 
+			}
+		]
+	},
+	{
+		// Total time before next animation
+		frame: {duration:2000},
+
+		// time of actual animation
+		transition: {duration: 1500}
+	}
+)
+	</code></pre>
+	</div>
+
+
+
+	<div>
+		<div class='desc'>
+			Styling a plot or trace
+
+		</div>
+		<pre><code class="language-js">
+var trace1 = {
+				x: x_data,
+				y: y_data,
+				mode: 'markers',
+
+				// Styling
+				marker: {
+					color: 'red',
+					size: 20
+			}
+			};
+	</code></pre>
+	</div>
+
+
+
+
+
+
+	</div>
+
+	<script src='prism.js'></script> 
+</body>
+</html>
